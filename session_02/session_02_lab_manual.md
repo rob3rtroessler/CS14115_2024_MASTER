@@ -19,6 +19,7 @@ import pandas as pd
 # List of dictionaries
 l = [{'a': 1, 'b': 2}, {'a': -2, 'b': 0}]
 l
+
 # output:>> [{'a': 1, 'b': 2}, {'a': -2, 'b': 0}]
 ```
 
@@ -26,6 +27,7 @@ l
 # Creating DataFrame from list of dicts
 df = pd.DataFrame(l)
 df
+
 # output:>>
 #    a  b
 # 0  1  2
@@ -35,12 +37,14 @@ df
 ```python
 # Printing index
 print(df.index)
+
 # output:>> RangeIndex(start=0, stop=2, step=1)
 ```
 
 ```python
 # Printing values
 print(df.values)
+
 # output:>> [[ 1  2]
 #            [-2  0]]
 ```
@@ -48,6 +52,7 @@ print(df.values)
 ```python
 # Checking the type of a column
 print(type(df['a']))
+
 # output:>> <class 'pandas.core.series.Series'>
 ```
 
@@ -55,6 +60,7 @@ print(type(df['a']))
 # Loading data from a CSV file
 df = pd.read_csv('data/students.csv')
 df.head()
+
 # sample output:>> 
 #    Student ID     Name  Age  Program
 # 0           1    Alice   20  Physics
@@ -68,6 +74,7 @@ df.head()
 ```python
 # Checking the shape of the DataFrame
 print(df.shape)
+
 # output:>> (100, 4)
 
 ```
@@ -75,6 +82,7 @@ print(df.shape)
 ```python
 # Descriptive statistics
 print(df.describe())
+
 # sample output:>> 
 #        Student ID         Age
 # count   100.00000  100.000000
@@ -96,7 +104,8 @@ Boolean indexing allows us to filter data based on conditions. Let's explore som
 # Filtering rows where column 'a' is greater than 0
 filtered_df = df[df['a'] > 0]
 filtered_df
-# sample output:>>
+
+# output:>>
 #    a  b
 # 0  1  2
 ```
@@ -105,6 +114,20 @@ filtered_df
 # Using .loc[] for label-based indexing
 subset_df = df.loc[:, ['a', 'b']]
 subset_df
+
+# output:>> 
+#    a  b
+# 0  1  2
+# 1 -2  0
+
+```
+
+```python
+# Using .iloc[] for positional indexing
+subset_df = df.iloc[:, [0, 1]]
+subset_df
+
+
 # output:>> 
 #    a  b
 # 0  1  2
@@ -116,6 +139,7 @@ subset_df
 # Sorting DataFrame by column 'a'
 sorted_df = df.sort_values(by='a')
 sorted_df
+
 # output:>> 
 #    a  b
 # 1 -2  0
@@ -123,8 +147,9 @@ sorted_df
 ```
 
 ```python
-# Counting unique values in 'program' column and plotting the top 10
+# Counting unique values in 'program' column and plotting the top 10 most frequent ones
 df['program'].value_counts()[:10].plot(kind='bar')
+
 # (This will display a bar plot of the top 10 most frequent programs)
 ```
 
@@ -141,10 +166,10 @@ Let's begin with finding individual characters. Type the following into a jupyte
 ```python
 import re
 
-sentence = 'This is CSCI14115 at Harvard Summer School.'
+url = '/article/2024/6/17/mens-tennis-Williams-transfer/'
 
 pattern = '[a]'
-re.findall(pattern, sentence)
+re.findall(pattern, url)
 
 # output:>> ['a', 'a', 'a']
 ```
@@ -154,12 +179,12 @@ find.
 ```python
 import re
 
-sentence = 'This is CSCI14115 at Harvard Summer School.'
+url = '/article/2024/6/17/mens-tennis-Williams-transfer/'
 
 pattern = '[ast-vC]'
-re.findall(pattern, sentence)
+re.findall(pattern, url)
 
-# output:>> ['s', 's', 'C', 'C', 'a', 't', 'a', 'v', 'a', 'u']
+# output:>> ['t', 't', 't', 'a', 't', 't', 'a', 'v', 'a']
 ```
 
 Instead of looking for individual characters, RegEx also allows you to look for special sequences and let's you quantify
@@ -168,35 +193,80 @@ your pattern through the use of special characters. For example, \d matches any 
 ```python
 import re
 
-sentence = 'This is CSCI14115 at Harvard Summer School.'
+url = '/article/2024/6/17/mens-tennis-Williams-transfer/'
+
+pattern = '[ast-vC]'
+re.findall(pattern, url)
+
+# output:>> ['t', 't', 't', 'a', 't', 't', 'a', 'v', 'a']
+```
+The brackets [] denotes "matches any of these chars". This means that you can simply list all characters that you want to find.
+```python
+url = '/article/2024/6/17/mens-tennis-Williams-transfer/'
+
+pattern = '[ast-vC]'
+re.findall(pattern, url)
+
+# output:>> ['t', 't', 't', 'a', 't', 't', 'a', 'v', 'a']
+```
+Instead of looking for individual characters, RegEx also allows you to look for special sequences and let's you quantify your pattern through the use of special characters. For example, \d matches any digit and + means "1 or more occurrences".
+```python
+url = '/article/2024/6/17/mens-tennis-Williams-transfer/'
 
 pattern = '[a-zA-Z]+'
-re.findall(pattern, sentence)
+re.findall(pattern, url)
 
-# output:>> ['This', 'is', 'CSCI', 'at', 'Harvard', 'Summer', 'School']
+# output:>> ['article', 'mens', 'tennis', 'Williams', 'transfer']
 ```
 
 Now it's your turn. Change the below (fill in the blank), so that you will get the following output:
 ```python
-import re
-
-sentence = 'This is CSCI14115 at Harvard Summer School.'
+url = '/article/2024/6/17/mens-tennis-Williams-transfer/'
 
 pattern = '_____'
-re.findall(pattern, sentence)
+re.findall(pattern, url)
 
-# output:>> ['This', 'is', 'CSCI14115', 'at', 'Harvard', 'Summer', 'School']
+# output:>> ['article', '2024', '6', '17', 'mens', 'tennis', 'Williams', 'transfer']
 ```
+
 Now write a RegEx that only extracts words that start with a capital letter.
+
+```python
+url = '/article/2024/6/17/mens-tennis-Williams-transfer/'
+
+pattern = r'/article/(\d{4})/(\d{1,2})/(\d{1,2})/'
+match = re.search(pattern, url)
+if match:
+    year, month, day = match.groups()
+    date = f'{year}-{int(month):02d}-{int(day):02d}'
+    print(date)
+
+# output:>> '2024-06-17'
+```
+
+Try extracting the date from the following URL:
+
+```python
+url = '/article/2024/6/17/mens-tennis-Williams-transfer/'
+
+pattern = '_____'
+re.findall(pattern, url)
+
+# output:>> ['2024', '6', '17']
+```
+
+One last example sentence involving a date in the URL:
 ```python
 import re
 
-sentence = 'This is CSCI14115 at Harvard Summer School.'
+url = '/article/2024/6/17/mens-tennis-Williams-transfer/'
 
-pattern = '_____'
-re.findall(pattern, sentence)
+pattern = r'/article/(\d{4})/(\d{1,2})/(\d{1,2})/'
+year, month, day = re.search(pattern, url).groups()
+year, month, day
 
-# output:>> ['This', 'CSCI14115', 'Harvard', 'Summer', 'School']
+# output:>> ('2024', '6', '17')
+
 ```
 
 ### 2. Replacing Text
