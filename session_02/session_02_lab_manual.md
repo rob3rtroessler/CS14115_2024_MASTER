@@ -173,34 +173,9 @@ re.findall(pattern, url)
 
 # output:>> ['a', 'a', 'a']
 ```
-The brackets [] denotes "matches any of these chars". This means that you can simply list all characters that you want to
-find. 
 
-```python
-import re
-
-url = '/article/2024/6/17/mens-tennis-Williams-transfer/'
-
-pattern = '[ast-vC]'
-re.findall(pattern, url)
-
-# output:>> ['t', 't', 't', 'a', 't', 't', 'a', 'v', 'a']
-```
-
-Instead of looking for individual characters, RegEx also allows you to look for special sequences and let's you quantify
-your pattern through the use of special characters. For example, \d matches any digit and + means "1 or more occurences".
-
-```python
-import re
-
-url = '/article/2024/6/17/mens-tennis-Williams-transfer/'
-
-pattern = '[ast-vC]'
-re.findall(pattern, url)
-
-# output:>> ['t', 't', 't', 'a', 't', 't', 'a', 'v', 'a']
-```
 The brackets [] denotes "matches any of these chars". This means that you can simply list all characters that you want to find.
+
 ```python
 url = '/article/2024/6/17/mens-tennis-Williams-transfer/'
 
@@ -209,7 +184,9 @@ re.findall(pattern, url)
 
 # output:>> ['t', 't', 't', 'a', 't', 't', 'a', 'v', 'a']
 ```
+
 Instead of looking for individual characters, RegEx also allows you to look for special sequences and let's you quantify your pattern through the use of special characters. For example, \d matches any digit and + means "1 or more occurrences".
+
 ```python
 url = '/article/2024/6/17/mens-tennis-Williams-transfer/'
 
@@ -229,8 +206,7 @@ re.findall(pattern, url)
 # output:>> ['article', '2024', '6', '17', 'mens', 'tennis', 'Williams', 'transfer']
 ```
 
-Now write a RegEx that only extracts words that start with a capital letter.
-
+Now write a RegEx that extracts the date in the format YYYY-MM-DD.
 ```python
 url = '/article/2024/6/17/mens-tennis-Williams-transfer/'
 
@@ -243,9 +219,7 @@ if match:
 
 # output:>> '2024-06-17'
 ```
-
-Try extracting the date from the following URL:
-
+Here is more practice with finding dates:
 ```python
 url = '/article/2024/6/17/mens-tennis-Williams-transfer/'
 
@@ -255,10 +229,7 @@ re.findall(pattern, url)
 # output:>> ['2024', '6', '17']
 ```
 
-One last example sentence involving a date in the URL:
 ```python
-import re
-
 url = '/article/2024/6/17/mens-tennis-Williams-transfer/'
 
 pattern = r'/article/(\d{4})/(\d{1,2})/(\d{1,2})/'
@@ -266,8 +237,8 @@ year, month, day = re.search(pattern, url).groups()
 year, month, day
 
 # output:>> ('2024', '6', '17')
-
 ```
+
 
 ### 2. Replacing Text
 Let's now get to substituting characters and start with straightforward example, in which we define a pattern that we then
