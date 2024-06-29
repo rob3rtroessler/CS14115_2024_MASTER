@@ -1,1 +1,2 @@
-# CS14115_2024_MASTER
+# CS14115 is an introductory data science and visualization course taught through the Harvard Division of Continuing Education.
+###  This repository contains all teaching materials used (including master and template .ipynb notebooks, lab manual style guides  for concepts), as well as environment setup .yml files, and .csv files for the data used.
