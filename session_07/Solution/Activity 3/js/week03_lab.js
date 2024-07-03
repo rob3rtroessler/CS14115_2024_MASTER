@@ -1,8 +1,6 @@
 
 // Global variable with 60 attractions (JSON format)
-// console.log(attractions);
-
-dataManipulation();
+console.log(attractionData);
 
 function dataFiltering() {
 	let attractions = attractionData;
@@ -34,6 +32,5 @@ function dataFiltering() {
 	renderBarChart(topAttractions);
 }
 
-function dataManipulation() {
-    dataFiltering();
-}
+// call initial dataFiltering
+dataFiltering()

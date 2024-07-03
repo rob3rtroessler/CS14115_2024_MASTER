@@ -10,27 +10,20 @@
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 		<link rel="stylesheet" href="css/style.css">
 
-		<!-- GOOGLE FONTS -->
-		<link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,500,400italic,300italic' rel='stylesheet' type='text/css'>
-		<link href='https://fonts.googleapis.com/css?family=Satisfy' rel='stylesheet' type='text/css'>
+		<style>
+			/* *** ADD CUSTOM STYLES HERE *** */
+ 		</style>
+
 	</head>
 	<body>
 
-	<div class="container-fluid content">
+
+	<div class="container-fluid">
 
 		<!-- header -->
-		<div class="row">
-			<div class="col">
-				<div class="row justify-content-center">
-					<div class="align-self-center">
-						<h2>Theme Parks, Water Parks and Museums</h2>
-					</div>
-				</div>
-				<div class="row justify-content-center">
-					<div class="align-self-center">
-						<h1>Global Attractions Attendance</h1>
-					</div>
-				</div>
+		<div class="row justify-content-center">
+			<div class="align-self-center">
+				<h1>Global Attractions Attendance</h1>
 			</div>
 		</div>
 
@@ -39,33 +32,21 @@
 			<div class="align-self-center">
 				<div class="user-control">
 					<div class="form-group">
-						<label for="attraction-category">Choose Category:</label>
 						<select id="attraction-category" class="form-control" onchange="dataFiltering()">
 							<option value="all">All Attractions</option>
+							<option value="Theme Park">Theme Park</option>
 							<option value="Water Park">Water Park</option>
 							<option value="Museum">Museum</option>
-							<option value="Theme Park">Theme Park</option>
 						</select>
 					</div>
 				</div>
 			</div>
 		</div>
 
+
+
 		<!-- Parent container of our bar chart -->
-		<div class="row">
-			<div class="col-8 offset-2">
-				<div id="chart-area"></div>
-				<div id="tooltip" class="hidden">
-					<p><strong>Annual Visitors</strong></p>
-					<p><span id="value">0</span></p>
-				</div>
-				<p class="source-desc">Source: TEA/AECOM 2013 Theme Index and Museum Index</p>
-			</div>
-		</div>
-
-
-
-
+		<div id="chart-area"></div>
 
 	</div>
 
@@ -78,12 +59,11 @@
 	<!-- d3 -->
 	<script src="https://d3js.org/d3.v6.min.js"></script>
 
-
 	<!-- Completed: data loading, bar-chart rendering -->
 	<script src="js/global-attractions.js"></script>
 	<script src="js/barchart.js"></script>
 
-	<script src="js/week03_lab.js"></script>
-
+	<!-- *** ADD JS CODE TO THE FOLLOWING FILE: *** -->
+	<script src="js/week_03_lab.js"></script>
 	</body>
 </html>

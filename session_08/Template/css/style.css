@@ -1,4 +1,6 @@
-/* PRE-CONFIGURED STYLES */
+
+
+/**** ADD YOUR STYLES ****/
 
 
 /****************/
@@ -6,11 +8,11 @@
 /****************/
 
 .bar {
-  fill: steelblue;
+  fill: #3C948B;
 }
 
 .bar:hover {
-  fill: brown;
+  fill: #327972;
 }
 
 .axis {
@@ -18,29 +20,18 @@
 }
 
 .axis path,
-.axis line {
+.axis line,
+.domain {
   fill: none;
-  stroke: #000;
+  stroke: #888;
   shape-rendering: crispEdges;
 }
 
-.x-axis path {
-  display: none;
+#chart-area text {
+  font-size: 11px;
 }
 
-.axis-title {
-	fill: #888;
-	font-size: 11px;
-}
-
-
-/****************/
-/*   TOOLTIPS   */
-/****************/
-
-.tooltip {
-  position: absolute;
-  text-align: center;
-  font: 12px sans-serif;
-  /*  pointer-events: none;	This line needs to be removed */
+.axis-label {
+  fill: #888;
+  font-size: 10px;
 }
