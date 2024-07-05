@@ -14,19 +14,39 @@ function dataFiltering() {
 		return b.Visitors - a.Visitors
 	})
 
-	console.log(sortedAttractions)
+	console.log("sorted", sortedAttractions)
 
-	// filter - top 5
-	let topFiveAttractions = sortedAttractions.filter((attraction, i) => {
-		return i < 5
-	})
-
-	console.log(topFiveAttractions)
 
 	let selectBox = document.getElementById("attraction-category");
 	let selectedValue = selectBox.options[selectBox.selectedIndex].value;
 
-	console.log(selectedValue)
+	console.log("selected value", selectedValue)
+
+
+	// filter by attraction after sorting
+	// BUT ONLY IF selectedValue !== all
+
+	let filteredAndSortedAttractions = sortedAttractions
+
+	if (selectedValue !== 'all'){
+		filteredAndSortedAttractions = sortedAttractions.filter((attraction,i) => {
+			console.log(attraction.Category, selectedValue)
+			return attraction.Category === selectedValue
+		})
+	}
+
+
+	console.log('filtered', filteredAndSortedAttractions)
+
+
+
+
+	// filter - top 5
+	let topFiveAttractions = filteredAndSortedAttractions.filter((attraction, i) => {
+		return i < 5
+	})
+
+	console.log("top 5", topFiveAttractions)
 
 
 	renderBarChart(topFiveAttractions)

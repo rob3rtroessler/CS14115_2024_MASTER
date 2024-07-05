@@ -7,6 +7,7 @@ let width = 700,
 // Load CSV file
 d3.csv("data/wealth-health-2014.csv", d => {
 
+	d.Income = +d.Income
 	console.log(d)
 
 	return d;
@@ -22,4 +23,6 @@ d3.csv("data/wealth-health-2014.csv", d => {
 
 function drawChart(data){
 	// do whatever
+
+
 }

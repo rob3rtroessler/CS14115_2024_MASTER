@@ -63,8 +63,6 @@ function drawChart(data){
 	let regions = ['1','2','3','4']
 	console.log(d3.schemeCategory10)
 
-	d3.schemeCategory10
-
 	// Map data to visual elements (SVG circles)
 	let circles = svg.selectAll("circle")
 		.data(data)

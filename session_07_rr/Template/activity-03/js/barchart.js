@@ -67,32 +67,14 @@ function renderBarChart(data) {
     bars.enter()
         .append("rect")
         .attr("class", "bar")
-        .attr("x", d => x(d.Location))
-        .attr("y", d => y(d.Visitors))
+        .attr("x", attraction => x(attraction.Location))
+        .attr("y", function(d, i) {
+			console.log(d, i)
+			return y(d.Visitors)
+		})
         .attr("height", d => (height - y(d.Visitors)))
         .attr("width", x.bandwidth())
-		.on("mouseover", function(event, d) {
 
-            //Get this bar's x/y values, then augment for the tooltip
-            let xPosition = margin.left + parseFloat(d3.select(this).attr("x")) ;
-            let yPosition = margin.top +  y(d.Visitors/2);
-
-            //Update the tooltip position and value
-            d3.select("#tooltip")
-                .style("left", xPosition + "px")
-                .style("top", yPosition + "px")
-                .select("#value")
-                .text(d.Visitors);
-
-
-            //Show the tooltip
-            d3.select("#tooltip").classed("hidden", false);
-		})
-		.on("mouseout", function(d) {
-
-            //Hide the tooltip
-            d3.select("#tooltip").classed("hidden", true);
-		});
 
 
 	// ---- DRAW AXIS	----
