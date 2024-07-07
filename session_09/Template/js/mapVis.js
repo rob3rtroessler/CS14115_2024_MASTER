@@ -3,32 +3,26 @@
 * * * * * * * * * * * * * */
 
 
-
-
 class MapVis {
 
-    //####################################################################################################
-    // TODO | Task MapVis-2 : Set up the constructor method for class architecture
-    // We have initiated this constructor method, try to complete it according to how we do it in dataTable.js
-    constructor(p) {
+    constructor(parentElement, airportData, geoData) {
+        this.parentElement = parentElement;
+        this.geoData = geoData;
+        this.airportData = airportData;
 
-
-        // parse date method
-        this.parseDate = d3.timeParse("%m/%d/%Y");
+        // define colors
+        this.colors = ['#fddbc7','#f4a582','#d6604d','#b2182b']
 
         this.initVis()
     }
 
-
-
     initVis() {
         let vis = this;
 
-        vis.colors = d3.scaleLinear().range(["#FFFFFF", "#136D70"])
 
         vis.margin = {top: 20, right: 20, bottom: 20, left: 20};
-        vis.width = document.getElementById(vis.parentElement).getBoundingClientRect().width - vis.margin.left - vis.margin.right;
-        vis.height = document.getElementById(vis.parentElement).getBoundingClientRect().height - vis.margin.top - vis.margin.bottom;
+        vis.width = $("#" + vis.parentElement).width() - vis.margin.left - vis.margin.right;
+        vis.height = $("#" + vis.parentElement).height() - vis.margin.top - vis.margin.bottom;
 
         // init drawing area
         vis.svg = d3.select("#" + vis.parentElement).append("svg")
@@ -36,46 +30,45 @@ class MapVis {
             .attr("height", vis.height)
             .attr('transform', `translate (${vis.margin.left}, ${vis.margin.top})`);
 
-        //####################################################################################################
-        //  TODO | Task MapVis-3 : Append a new SVG area with D3
+        // add title
+        vis.svg.append('g')
+            .attr('class', 'title map-title')
+            .append('text')
+            .text('Title for Map')
+            .attr('transform', `translate(${vis.width / 2}, 20)`)
+            .attr('text-anchor', 'middle');
+
+        // TODO
 
 
-
-
-
-
-
-        //####################################################################################################
-        //  TODO | Task MapVis-4 : Draw the map
-
-
-
-
-
-
-
+        vis.wrangleData()
 
     }
 
-//####################################################################################################
-//  TODO | Task MapVis-5 : Define wrangleData() method
     wrangleData(){
-        let vis = this
+        let vis = this;
 
+        // create random data structure with information for each land
+        vis.countryInfo = {};
+        vis.geoData.objects.countries.geometries.forEach( d => {
+            let randomCountryValue = Math.random() * 4
+            vis.countryInfo[d.properties.name] = {
+                name: d.properties.name,
+                category: 'category_' + Math.floor(randomCountryValue),
+                color: vis.colors[Math.floor(randomCountryValue)],
+                value: randomCountryValue/4 * 100
+            }
+        })
 
-        vis.updateMap()
+        vis.updateVis()
     }
 
 
 
+    updateVis(){
+        let vis = this;
 
-    updateMap(){
-        let vis = this
-        //####################################################################################################
-        //  TODO | Task MapVis-7 : Add color variation to the map
-
-
-
+        // TODO
 
 
     }

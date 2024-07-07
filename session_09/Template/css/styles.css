@@ -11,10 +11,9 @@
     font: 14px sans-serif;
 }
 
-.table {
-    font-size: 0.7em;
-}
-
-.x-axis, .y-axis {
-    font-size: .5em;
+.connection {
+    stroke: black;
+    stroke-dasharray: 5;
+    stroke-width: 3px;
+    opacity: 0.7;
 }
