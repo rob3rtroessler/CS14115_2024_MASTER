@@ -35,8 +35,8 @@
 We will start today's session with a group exercise. 
 
  **Task 1:** Together with your teammates, open the solution for session 6 and check out the
-  website and the code. Examine the code and come up with at least three questions that you have. Lastly, come up with one 'quiz' question where you test the HTML and CSS skills or your peers
-  . It should be a question that they are able to answer based on yesterday's session.
+  website and the code. Examine the code and come up with at least three questions that you have. Lastly, come up with one 'quiz' question where you test the HTML and CSS skills or your peers. 
+ It should be a question that they are able to answer based on yesterday's session.
   
 **Task 2:** Explore how the carousel is working. Try to follow the code and come up with an
  explanation/description of how the different snippets of html css and js code work together.
@@ -94,8 +94,8 @@ When JavaScript is used in HTML pages, JavaScript listens to these events and ca
 
 There are various methods in JS that allow us to grab a DOM element and manipulate it. The most
  prominent ones are the `.querySelector()` and the `getElementById()` method. Below you can find
-  the code snippet for the query selector (that works exactly like a CSS selector with tags
-  , classes, and IDs). In addition, we also included an entire website example that has an event
+  the code snippet for the query selector (that works exactly like a CSS selector with tags, 
+classes, and IDs). In addition, we also included an entire website example that has an event
    listener that fires 'on click' and selects a paragraph by ID and changes it. Feel free to
     create a new html file and copy-paste the code and try it out. Try to change the method in
      the code from the getElementById method to the querySelector method.
@@ -137,8 +137,6 @@ document.querySelector("#my-text").innerHTML = 'changed the text';
 This lab includes three activities and covers JS basics. It is intended to solidify your understanding of JS so that you are able to write your own code in upcoming exercises. If you already know JS well, feel free to skim the text and jump right to the activities. However, if you are new to JS or need a refresher, make sure to read the text closely!
 
 *The result of this lab may look like the following screenshot. Among other things, you will work with data from amusement parks and museums and do some array manipulations and filtering. At the end you will use JS to call a function that will render a pre-configured bar chart.*
-
-![Lab 2 - Preview](week-03_lab_preview.png?raw=true "Lab 2 - Preview")
 
 ### A short reiteration of the basic concepts of JavaScript (JS)
 
@@ -202,25 +200,25 @@ let nestedNumbers = [[1, 2], [3, 4], [5, 6]];
 ```javascript
 // JS object with four properties
 let course = {
-	id: "CS171",
-	name: "Visualization",
-	students: 220,
+	id: "CS14115",
+	name: "Data Science",
+	students: 45,
 	active: true
 }
 
 // Accessing an object via dot notation, specifying the name of the property
-course.id; 		// Returns: CS171
-course.students;	// Returns: 220
+course.id; 		// Returns: CS14115
+course.students;	// Returns: 45
 
 // We can include arrays in objects
 let course = {
-	id: "CS171",
-	students: ["Michael", "Ann", "James", "Kathy"]
+	id: "CS14115",
+	teachers: ["Robert", "Aseel", "Dries", "Ethan"]
 };
 
 // And we can also create arrays of objects
 let courses = [
-	{ id: "CS171", name: "Visualization" },
+	{ id: "CS14115", name: "Data Science" },
 	{ id: "CS50", name: "Introduction to Computer Science" }
 ];
 
@@ -238,9 +236,9 @@ courses[1].id; 	// Returns: CS50
 ```javascript
 // JSON object
 let course = {
-	"id": "CS171",
-	"name": "Visualization",
-	"students": 220,
+	"id": "CS14115",
+	"name": "Data Science",
+	"students": 45,
 	"active": true
 }
 ```
@@ -396,10 +394,6 @@ arrayWithNames.forEach( (element, index) => {
 });
 # # # # # # # # # # # # # # # # # # # # # # # # # # #
 ```
-
-*Result:*
-![Lab 2 - For-Loops](cs14115-for-loop-examples.png?raw=true "Lab 2 - For-Loops")
-
 
 #### Functions
 
